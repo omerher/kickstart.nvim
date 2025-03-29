@@ -22,6 +22,10 @@ vim.keymap.set('n', '<leader>E', function()
   MiniFiles.open(vim.api.nvim_buf_get_name(0)) ---@diagnostic disable-line: undefined-global
 end, { desc = 'Open File Explorer' })
 
+vim.keymap.set('n', '<space>gg', function()
+  Snacks.lazygit.open()
+end, { desc = 'Open LazyGit' })
+
 --
 -- Copied from neovim/runtime/lua/vim/_defaults.lua
 do
