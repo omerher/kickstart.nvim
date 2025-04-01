@@ -30,7 +30,10 @@ return {
       -- Actions
       -- normal mode
       map('n', '<leader>gp', gitsigns.preview_hunk, { desc = 'git [p]review hunk' })
+      map('n', '<leader>gP', gitsigns.preview_hunk_inline, { desc = 'git [P]review hunk inline' })
+      map('n', '<leader>gr', gitsigns.reset_hunk, { desc = 'git [r]eset hunk' })
       map('n', '<leader>gb', gitsigns.blame_line, { desc = 'git [b]lame line' })
+      map('n', '<leader>gB', gitsigns.blame, { desc = 'git [B]lame buffer' })
       -- Toggles
       map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
     end,
