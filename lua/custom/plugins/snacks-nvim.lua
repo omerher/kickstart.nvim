@@ -9,7 +9,7 @@ return {
     -- refer to the configuration section below
     bigfile = { enabled = true },
     indent = { enabled = true },
-    lazygit = { enabled = true },
+    lazygit = { configure = false },
     quickfile = { enabled = true },
     rename = { enabled = true },
   },
