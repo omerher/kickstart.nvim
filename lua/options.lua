@@ -58,3 +58,6 @@ vim.opt.confirm = true
 
 vim.opt.termguicolors = true
 vim.opt.expandtab = true
+
+-- Show / instead of the more ugly - in git diffs
+vim.opt.fillchars:append { diff = '╱' }

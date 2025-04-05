@@ -43,8 +43,6 @@ return { -- Collection of various small independent plugins/modules
 
     require('mini.pairs').setup()
 
-    require('mini.notify').setup()
-
     require('mini.files').setup {
       mappings = {
         go_in = '<Right>',

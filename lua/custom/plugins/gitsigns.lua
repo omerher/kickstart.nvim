@@ -35,7 +35,7 @@ return {
       map('n', '<leader>gb', gitsigns.blame_line, { desc = 'git [b]lame line' })
       map('n', '<leader>gB', gitsigns.blame, { desc = 'git [B]lame buffer' })
       -- Toggles
-      map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
+      map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle [b]lame line' })
     end,
   },
 }

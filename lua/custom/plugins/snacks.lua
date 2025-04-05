@@ -9,6 +9,7 @@ return {
     -- refer to the configuration section below
     bigfile = { enabled = true },
     indent = { enabled = true },
+    notifier = { enabled = true },
     lazygit = {
       configure = true,
       -- config = {
@@ -22,4 +23,28 @@ return {
     quickfile = { enabled = true },
     rename = { enabled = true },
   },
+  -- stylua: ignore
+  keys = {
+    { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
+  },
+  init = function()
+    vim.api.nvim_create_autocmd('User', {
+      pattern = 'VeryLazy',
+      callback = function()
+        -- Setup some globals for debugging (lazy-loaded)
+        _G.dd = function(...)
+          Snacks.debug.inspect(...)
+        end
+        _G.bt = function()
+          Snacks.debug.backtrace()
+        end
+        vim.print = _G.dd -- Override print to use snacks for `:=` command
+
+        -- Create some toggle mappings
+        Snacks.toggle.option('wrap', { name = 'Wrap' }):map '<leader>tw'
+        Snacks.toggle.diagnostics():map '<leader>td'
+        Snacks.toggle.inlay_hints():map '<leader>th'
+      end,
+    })
+  end,
 }

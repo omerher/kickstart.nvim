@@ -1,6 +1,6 @@
-wk = require 'which-key'
+local wk = require 'which-key'
 
-vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' })
+vim.keymap.set('n', '<leader>qq', '<cmd>qa<CR>', { desc = 'Quit All' })
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>') -- Remove highlights on ESC
 
 -- Center on page up/down
@@ -15,6 +15,9 @@ wk.add { '<leader>p', icon = { icon = '󰅇', color = 'yellow' } }
 
 vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
 
+vim.keymap.set('n', '<Tab>', '<cmd>tabp<CR>', { desc = 'Previous Tab' })
+vim.keymap.set('n', '<S-Tab>', '<cmd>tabn<CR>', { desc = 'Next Tab' })
+
 vim.keymap.set('n', '<leader>e', function()
   MiniFiles.open() ---@diagnostic disable-line: undefined-global
 end, { desc = 'Open File Explorer' })
@@ -22,9 +25,9 @@ vim.keymap.set('n', '<leader>E', function()
   MiniFiles.open(vim.api.nvim_buf_get_name(0)) ---@diagnostic disable-line: undefined-global
 end, { desc = 'Open File Explorer' })
 
-vim.keymap.set('n', '<space>gg', function()
-  Snacks.lazygit.open()
-end, { desc = 'Open LazyGit' })
+vim.keymap.set('n', '<leader>tl', function()
+  require('quicker').toggle { focus = true }
+end, { desc = 'Toggle Quickfix' })
 
 --
 -- Copied from neovim/runtime/lua/vim/_defaults.lua
